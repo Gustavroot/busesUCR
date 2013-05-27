@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "id": "containerMapa",
         "designer|userClassName": "MyContainer",
         "designer|userAlias": "mycontainer",
         "layout": "fit"

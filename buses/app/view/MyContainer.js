@@ -18,6 +18,7 @@ Ext.define('MyApp.view.MyContainer', {
     alias: 'widget.mycontainer',
 
     config: {
+        id: 'containerMapa',
         layout: {
             type: 'fit'
         },

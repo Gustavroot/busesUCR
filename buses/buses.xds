@@ -50,6 +50,22 @@
                 "metadata/resource/GoogleMapsAPI"
             ],
             "className": "GoogleMapsAPI"
+        },
+        "163ae345-16e2-41a3-8649-187162f2dddb": {
+            "paths": [
+                "metadata/store/storeBusesUCR",
+                "app/store/override/storeBusesUCR.js",
+                "app/store/storeBusesUCR.js"
+            ],
+            "className": "storeBusesUCR"
+        },
+        "5fe17ef2-ad8d-4303-9eb1-9382b33fa735": {
+            "paths": [
+                "metadata/model/modelBusesUCR",
+                "app/model/override/modelBusesUCR.js",
+                "app/model/modelBusesUCR.js"
+            ],
+            "className": "modelBusesUCR"
         }
     },
     "viewOrderMap": {
@@ -58,9 +74,13 @@
             "78a70229-a669-41fc-bc47-546e3a4ebb08",
             "2705db91-e7f1-460c-a8f0-3721ccb3577d"
         ],
-        "store": [],
+        "store": [
+            "163ae345-16e2-41a3-8649-187162f2dddb"
+        ],
         "controller": [],
-        "model": [],
+        "model": [
+            "5fe17ef2-ad8d-4303-9eb1-9382b33fa735"
+        ],
         "resource": [
             "d8157a21-7817-40ab-ae68-e4974ce8974a",
             "843e21b2-9f56-475d-8b6b-46e294bd0083"

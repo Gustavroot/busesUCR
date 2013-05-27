@@ -50,6 +50,25 @@
             },
             "designerId": "c3ad0eac-7ec3-419b-b5c4-159583166aa9",
             "masterInstanceId": "2705db91-e7f1-460c-a8f0-3721ccb3577d"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTabpanelActiveItemChange",
+                "implHandler": [
+                    "if(oldValue==Ext.getCmp('containerMapa')){",
+                    "    alert('se pasa hacia info');",
+                    "    Ext.getStore('storeBusesUCR').load();",
+                    "}"
+                ],
+                "name": "activeitemchange"
+            },
+            "designerId": "9e027d65-ad17-48f6-a238-73f9b594896a"
         }
     ]
 }

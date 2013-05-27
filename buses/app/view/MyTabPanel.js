@@ -36,7 +36,20 @@ Ext.define('MyApp.view.MyTabPanel', {
                 title: 'Info',
                 iconCls: 'info'
             }
+        ],
+        listeners: [
+            {
+                fn: 'onTabpanelActiveItemChange',
+                event: 'activeitemchange'
+            }
         ]
+    },
+
+    onTabpanelActiveItemChange: function(container, value, oldValue, eOpts) {
+        if(oldValue==Ext.getCmp('containerMapa')){
+            alert('se pasa hacia info');
+            Ext.getStore('storeBusesUCR').load();
+        }
     }
 
 });

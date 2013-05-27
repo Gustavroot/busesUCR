@@ -18,6 +18,7 @@ Ext.define('MyApp.view.MyContainer1', {
     alias: 'widget.mycontainer11',
 
     config: {
+        id: 'containerInfo',
         layout: {
             type: 'fit'
         },
