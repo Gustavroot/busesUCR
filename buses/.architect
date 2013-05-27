@@ -1,0 +1,66 @@
+{
+    "expandedState": {
+        "data": true,
+        "model": true,
+        "component": true,
+        "controller": true,
+        "resource": true,
+        "d04a97f0-ea46-49ad-b854-0c8e3042d3ff": {
+            "id": "d04a97f0-ea46-49ad-b854-0c8e3042d3ff",
+            "cn": [
+                {
+                    "id": "d6b44ee0-c686-4c08-999e-00aa56944734"
+                },
+                {
+                    "id": "9b2416dd-db61-467f-8e10-b8fdadc7dcbe"
+                },
+                {
+                    "id": "c3ad0eac-7ec3-419b-b5c4-159583166aa9"
+                }
+            ]
+        },
+        "78a70229-a669-41fc-bc47-546e3a4ebb08": {
+            "id": "78a70229-a669-41fc-bc47-546e3a4ebb08",
+            "cn": [
+                {
+                    "id": "cd87df87-ab9b-41e4-a4f8-0f759c656ad5"
+                },
+                {
+                    "id": "44572ba3-674e-4672-9e63-13c53082e6ce"
+                }
+            ]
+        },
+        "2705db91-e7f1-460c-a8f0-3721ccb3577d": {
+            "id": "2705db91-e7f1-460c-a8f0-3721ccb3577d",
+            "cn": [
+                {
+                    "id": "9ca5cb13-dc7e-4227-b02e-a4a82d461e52"
+                }
+            ]
+        },
+        "d8157a21-7817-40ab-ae68-e4974ce8974a": {
+            "id": "d8157a21-7817-40ab-ae68-e4974ce8974a"
+        },
+        "843e21b2-9f56-475d-8b6b-46e294bd0083": {
+            "id": "843e21b2-9f56-475d-8b6b-46e294bd0083"
+        }
+    },
+    "tabState": {
+        "openTabs": [
+            "d04a97f0-ea46-49ad-b854-0c8e3042d3ff",
+            "78a70229-a669-41fc-bc47-546e3a4ebb08",
+            "2705db91-e7f1-460c-a8f0-3721ccb3577d"
+        ]
+    },
+    "canvasState": {
+        "topInstance": "78a70229-a669-41fc-bc47-546e3a4ebb08"
+    },
+    "inspectorState": {
+        "topInstance": "78a70229-a669-41fc-bc47-546e3a4ebb08",
+        "selectedInstance": "cd87df87-ab9b-41e4-a4f8-0f759c656ad5"
+    },
+    "codeState": {
+        "topInstance": null
+    },
+    "editMode": "design"
+}

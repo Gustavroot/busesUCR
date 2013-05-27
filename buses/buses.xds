@@ -1,0 +1,72 @@
+{
+    "name": "buses",
+    "settings": {
+        "spacesToIndent": 4,
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "urlPrefix": "",
+        "exportPath": "",
+        "buildShouldOverwriteIndex": true
+    },
+    "xdsVersion": "2.2.2",
+    "xdsBuild": 991,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000503,
+    "framework": "touch22",
+    "topInstanceFileMap": {
+        "d04a97f0-ea46-49ad-b854-0c8e3042d3ff": {
+            "paths": [
+                "metadata/view/MyTabPanel",
+                "app/view/override/MyTabPanel.js",
+                "app/view/MyTabPanel.js"
+            ],
+            "className": "MyTabPanel"
+        },
+        "78a70229-a669-41fc-bc47-546e3a4ebb08": {
+            "paths": [
+                "metadata/view/MyContainer",
+                "app/view/override/MyContainer.js",
+                "app/view/MyContainer.js"
+            ],
+            "className": "MyContainer"
+        },
+        "2705db91-e7f1-460c-a8f0-3721ccb3577d": {
+            "paths": [
+                "metadata/view/MyContainer1",
+                "app/view/override/MyContainer1.js",
+                "app/view/MyContainer1.js"
+            ],
+            "className": "MyContainer1"
+        },
+        "d8157a21-7817-40ab-ae68-e4974ce8974a": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "843e21b2-9f56-475d-8b6b-46e294bd0083": {
+            "paths": [
+                "metadata/resource/GoogleMapsAPI"
+            ],
+            "className": "GoogleMapsAPI"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "d04a97f0-ea46-49ad-b854-0c8e3042d3ff",
+            "78a70229-a669-41fc-bc47-546e3a4ebb08",
+            "2705db91-e7f1-460c-a8f0-3721ccb3577d"
+        ],
+        "store": [],
+        "controller": [],
+        "model": [],
+        "resource": [
+            "d8157a21-7817-40ab-ae68-e4974ce8974a",
+            "843e21b2-9f56-475d-8b6b-46e294bd0083"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}
