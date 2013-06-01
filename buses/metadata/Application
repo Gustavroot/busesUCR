@@ -7,16 +7,19 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "modelBusesUCR"
+            "modelBusesUCR",
+            "MyModel"
         ],
         "stores": [
-            "storeBusesUCR"
+            "storeBusesUCR",
+            "MyJsonPStore"
         ],
         "views": [
             "MyTabPanel",
-            "containerMapa",
             "containerInfo",
-            "Mapa"
+            "containerDescripProyecto",
+            "containerMapaPrinc",
+            "MyMap"
         ],
         "name": "MyApp"
     },

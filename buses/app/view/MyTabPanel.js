@@ -17,30 +17,36 @@ Ext.define('MyApp.view.MyTabPanel', {
     extend: 'Ext.tab.Panel',
 
     requires: [
-        'MyApp.view.containerMapa',
-        'MyApp.view.containerInfo'
+        'MyApp.view.containerDescripProyecto',
+        'MyApp.view.containerInfo',
+        'MyApp.view.containerMapaPrinc'
     ],
 
     config: {
         tabBar: {
             docked: 'bottom'
         },
+        listeners: [
+            {
+                fn: 'onTabpanelActiveItemChange',
+                event: 'activeitemchange'
+            }
+        ],
         items: [
             {
                 xtype: 'mycontainer',
-                title: 'Mapa',
-                iconCls: 'maps'
+                title: 'Acerca de',
+                iconCls: 'info'
             },
             {
                 xtype: 'mycontainer11',
                 title: 'Info',
                 iconCls: 'info'
-            }
-        ],
-        listeners: [
+            },
             {
-                fn: 'onTabpanelActiveItemChange',
-                event: 'activeitemchange'
+                xtype: 'mycontainer1',
+                title: 'Mapa',
+                iconCls: 'info'
             }
         ]
     },

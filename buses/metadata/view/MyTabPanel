@@ -24,34 +24,6 @@
             "designerId": "d6b44ee0-c686-4c08-999e-00aa56944734"
         },
         {
-            "type": "linkedinstance",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "title": "Mapa",
-                "iconCls": "maps"
-            },
-            "designerId": "9b2416dd-db61-467f-8e10-b8fdadc7dcbe",
-            "masterInstanceId": "78a70229-a669-41fc-bc47-546e3a4ebb08"
-        },
-        {
-            "type": "linkedinstance",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "title": "Info",
-                "iconCls": "info"
-            },
-            "designerId": "c3ad0eac-7ec3-419b-b5c4-159583166aa9",
-            "masterInstanceId": "2705db91-e7f1-460c-a8f0-3721ccb3577d"
-        },
-        {
             "type": "basiceventbinding",
             "reference": {
                 "name": "listeners",
@@ -69,6 +41,48 @@
                 "name": "activeitemchange"
             },
             "designerId": "9e027d65-ad17-48f6-a238-73f9b594896a"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Acerca de",
+                "iconCls": "info"
+            },
+            "designerId": "5a6310e1-75da-49b9-a429-75e86fc08b36",
+            "masterInstanceId": "2bb8e010-936f-40a9-a885-ada7ca02308b"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Info",
+                "iconCls": "info"
+            },
+            "designerId": "44d83e2e-6af7-454c-a11a-8f3318a244ae",
+            "masterInstanceId": "2705db91-e7f1-460c-a8f0-3721ccb3577d"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Mapa",
+                "iconCls": "info"
+            },
+            "designerId": "91824ba3-72ab-4d54-8676-36617f8c8533",
+            "masterInstanceId": "9caaeeae-7691-4566-9457-c31faa249000"
         }
     ]
 }

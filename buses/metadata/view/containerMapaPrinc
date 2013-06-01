@@ -1,0 +1,40 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "id": "containerMapaPrinc",
+        "designer|userClassName": "containerMapaPrinc",
+        "designer|userAlias": "mycontainer1",
+        "layout": "fit"
+    },
+    "designerId": "9caaeeae-7691-4566-9457-c31faa249000",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "title": "Mapa"
+            },
+            "designerId": "6238737c-0f37-4b52-9b31-1bac8317da3f"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "designerId": "7508d1df-1138-4c81-9dfa-a92046f2bfda",
+            "masterInstanceId": "4d7aa485-dd61-48c5-875b-33daba780812"
+        }
+    ]
+}

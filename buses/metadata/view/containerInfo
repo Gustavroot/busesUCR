@@ -14,7 +14,7 @@
     "designerId": "2705db91-e7f1-460c-a8f0-3721ccb3577d",
     "cn": [
         {
-            "type": "Ext.TitleBar",
+            "type": "Ext.Toolbar",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -25,6 +25,47 @@
                 "title": "Información"
             },
             "designerId": "9ca5cb13-dc7e-4227-b02e-a4a82d461e52"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "width": "49%"
+            },
+            "designerId": "3982309e-4a44-48ac-be35-c5a25d4094c9"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": "100%",
+                "left": "49.5%",
+                "style": "background-color: black",
+                "width": "1%"
+            },
+            "designerId": "3fbbf5f4-15bb-457a-a17d-0620df3440ab"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": "100%",
+                "left": "51%",
+                "width": "49%"
+            },
+            "designerId": "ba099005-2f92-41ed-8c00-6116616def57"
         }
     ]
 }
