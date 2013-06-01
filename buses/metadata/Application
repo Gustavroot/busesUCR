@@ -14,8 +14,9 @@
         ],
         "views": [
             "MyTabPanel",
-            "MyContainer",
-            "MyContainer1"
+            "containerMapa",
+            "containerInfo",
+            "Mapa"
         ],
         "name": "MyApp"
     },

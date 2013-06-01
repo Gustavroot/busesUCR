@@ -20,7 +20,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": "http://186.32.14.67/websites/docs/webpage/map/php/json_bus_markers.php"
+                "url": "http://faraday.eie.ucr.ac.cr/map/php/json_bus_markers.php",
+                "autoAppendParams": false
             },
             "designerId": "c5f7893e-2d01-4d65-8c55-8e1e810779dd",
             "cn": [
@@ -33,7 +34,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "idProperty": "idBus",
-                        "rootProperty": "Ford"
+                        "rootProperty": "Faraday"
                     },
                     "designerId": "de9d15fe-0443-43b2-83b6-e1388dd4ac11"
                 }
@@ -55,6 +56,66 @@
                 "name": "load"
             },
             "designerId": "1699c0ea-c0ce-4c7a-915f-5109c12b0dff"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "idBus"
+            },
+            "designerId": "c63a9676-fe67-40d4-976f-07fc0d95d4c0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "idReg"
+            },
+            "designerId": "6b11b3cb-e76a-41be-9f3a-0acbc78b9746"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Latitude"
+            },
+            "designerId": "efc9397c-a0c5-40bf-8acc-0afd2bbb0ded"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Longitude"
+            },
+            "designerId": "fd25c94c-e5ff-45d9-876e-9091ca1e99f7"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "DateTime"
+            },
+            "designerId": "97163b74-ce9b-44d6-b0e0-ac1433b0ddd4"
         }
     ]
 }

@@ -25,17 +25,35 @@ Ext.define('MyApp.store.storeBusesUCR', {
         storeId: 'storeBusesUCR',
         proxy: {
             type: 'jsonp',
-            url: 'http://186.32.14.67/websites/docs/webpage/map/php/json_bus_markers.php',
+            url: 'http://faraday.eie.ucr.ac.cr/map/php/json_bus_markers.php',
+            autoAppendParams: false,
             reader: {
                 type: 'json',
                 idProperty: 'idBus',
-                rootProperty: 'Ford'
+                rootProperty: 'Faraday'
             }
         },
         listeners: [
             {
                 fn: 'onJsonpstoreLoad',
                 event: 'load'
+            }
+        ],
+        fields: [
+            {
+                name: 'idBus'
+            },
+            {
+                name: 'idReg'
+            },
+            {
+                name: 'Latitude'
+            },
+            {
+                name: 'Longitude'
+            },
+            {
+                name: 'DateTime'
             }
         ]
     },

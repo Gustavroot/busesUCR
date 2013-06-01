@@ -25,19 +25,19 @@
         },
         "78a70229-a669-41fc-bc47-546e3a4ebb08": {
             "paths": [
-                "metadata/view/MyContainer",
-                "app/view/override/MyContainer.js",
-                "app/view/MyContainer.js"
+                "metadata/view/containerMapa",
+                "app/view/override/containerMapa.js",
+                "app/view/containerMapa.js"
             ],
-            "className": "MyContainer"
+            "className": "containerMapa"
         },
         "2705db91-e7f1-460c-a8f0-3721ccb3577d": {
             "paths": [
-                "metadata/view/MyContainer1",
-                "app/view/override/MyContainer1.js",
-                "app/view/MyContainer1.js"
+                "metadata/view/containerInfo",
+                "app/view/override/containerInfo.js",
+                "app/view/containerInfo.js"
             ],
-            "className": "MyContainer1"
+            "className": "containerInfo"
         },
         "d8157a21-7817-40ab-ae68-e4974ce8974a": {
             "paths": [
@@ -66,13 +66,22 @@
                 "app/model/modelBusesUCR.js"
             ],
             "className": "modelBusesUCR"
+        },
+        "c943e668-c89a-4417-8ad8-60a21a0d1646": {
+            "paths": [
+                "metadata/view/Mapa",
+                "app/view/override/Mapa.js",
+                "app/view/Mapa.js"
+            ],
+            "className": "Mapa"
         }
     },
     "viewOrderMap": {
         "view": [
             "d04a97f0-ea46-49ad-b854-0c8e3042d3ff",
             "78a70229-a669-41fc-bc47-546e3a4ebb08",
-            "2705db91-e7f1-460c-a8f0-3721ccb3577d"
+            "2705db91-e7f1-460c-a8f0-3721ccb3577d",
+            "c943e668-c89a-4417-8ad8-60a21a0d1646"
         ],
         "store": [
             "163ae345-16e2-41a3-8649-187162f2dddb"

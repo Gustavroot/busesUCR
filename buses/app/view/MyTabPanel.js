@@ -17,8 +17,8 @@ Ext.define('MyApp.view.MyTabPanel', {
     extend: 'Ext.tab.Panel',
 
     requires: [
-        'MyApp.view.MyContainer',
-        'MyApp.view.MyContainer1'
+        'MyApp.view.containerMapa',
+        'MyApp.view.containerInfo'
     ],
 
     config: {
