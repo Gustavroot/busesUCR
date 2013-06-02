@@ -50,8 +50,9 @@
             "userConfig": {
                 "fn": "onJsonpstoreLoad",
                 "implHandler": [
-                    "alert('hola papa loca');",
-                    "alert(records[0].get('Latitude'));"
+                    "for(var i=0; i<records.length; i++){",
+                    "    ",
+                    "}"
                 ],
                 "name": "load"
             },

@@ -21,24 +21,53 @@ Ext.Loader.setConfig({
 Ext.application({
     models: [
         'modelBusesUCR',
-        'MyModel'
+        'modelPinesParadas'
     ],
     stores: [
         'storeBusesUCR',
-        'MyJsonPStore'
+        'storePinesParadas'
     ],
     views: [
-        'MyTabPanel',
+        'tabPanelPrincipal',
         'containerInfo',
         'containerDescripProyecto',
         'containerMapaPrinc',
-        'MyMap'
+        'mapaDesplieguePines',
+        'containerEleccionPines',
+        'mapaEleccionPines'
     ],
     name: 'MyApp',
 
-    launch: function() {
+    insertarPinEnMapa: function(lat, lng, idMap, name, boundsObject, iconURL) {
+        var point = new google.maps.LatLng(lat,lng);
 
-        Ext.create('MyApp.view.MyTabPanel', {fullscreen: true});
+        if(iconURL!==undefined){
+            var iconoPinParada=new google.maps.MarkerImage(iconURL,null,null,null,new google.maps.Size(35,35));
+            var marker = new google.maps.Marker({
+                map: Ext.getCmp(idMap).getMap(),
+                position: point,
+                icon: iconoPinParada
+            });
+        }
+        else{
+            var marker = new google.maps.Marker({
+                map: Ext.getCmp(idMap).getMap(),
+                position: point
+            });
+        }
+
+
+        //Ext.getCmp(idMap).setMapCenter(point);
+
+        //markersPinesParadas.push(marker);
+        boundsObject.extend(point);
+        Ext.getCmp(idMap).getMap().fitBounds(boundsObject);
+    },
+
+    launch: function() {
+        //Array de pines
+        //markersPinesParadas=[];
+        Ext.create('MyApp.view.tabPanelPrincipal', {fullscreen: true});
     }
 
 });

@@ -1,0 +1,14 @@
+{
+    "type": "Ext.Map",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "id": "mapaEleccionPines",
+        "designer|userClassName": "mapaEleccionPines",
+        "designer|userAlias": "mapaeleccionpines"
+    },
+    "designerId": "6691bd17-86d6-4949-afb5-5fcfa1690c61"
+}

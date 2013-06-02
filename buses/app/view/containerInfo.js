@@ -26,24 +26,73 @@ Ext.define('MyApp.view.containerInfo', {
             {
                 xtype: 'toolbar',
                 docked: 'top',
-                title: 'Información'
+                title: 'Información',
+                items: [
+                    {
+                        xtype: 'button',
+                        handler: function(button, event) {
+                            Ext.getCmp('listaDespliegueInfo').removeAll();
+                        },
+                        right: '3%',
+                        width: '18%',
+                        iconCls: 'refresh'
+                    }
+                ]
             },
             {
                 xtype: 'container',
-                width: '49%'
+                html: '<center><font color="#29088A"><p>&nbsp</p><p>Despliegue por</p></font></center>',
+                width: '49%',
+                items: [
+                    {
+                        xtype: 'button',
+                        handler: function(button, event) {
+                            Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerEleccionPines'));
+                        },
+                        height: '10%',
+                        left: '15%',
+                        top: '35%',
+                        width: '70%',
+                        text: 'Paradas'
+                    },
+                    {
+                        xtype: 'button',
+                        handler: function(button, event) {
+                            Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerEleccionPines'));
+                        },
+                        height: '10%',
+                        left: '15%',
+                        top: '55%',
+                        width: '70%',
+                        text: 'Buses'
+                    }
+                ]
             },
             {
                 xtype: 'container',
                 height: '100%',
-                left: '49.5%',
+                left: '49.8%',
                 style: 'background-color: black',
-                width: '1%'
+                width: '0.4%'
             },
             {
                 xtype: 'container',
                 height: '100%',
                 left: '51%',
-                width: '49%'
+                width: '49%',
+                layout: {
+                    type: 'fit'
+                },
+                items: [
+                    {
+                        xtype: 'list',
+                        id: 'listaDespliegueInfo',
+                        itemTpl: [
+                            '{Name}'
+                        ],
+                        store: 'storePinesParadas'
+                    }
+                ]
             }
         ]
     }

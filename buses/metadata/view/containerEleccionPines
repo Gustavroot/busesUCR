@@ -6,12 +6,12 @@
     },
     "codeClass": null,
     "userConfig": {
-        "id": "containerMapaPrinc",
-        "designer|userClassName": "containerMapaPrinc",
-        "designer|userAlias": "mycontainer1",
+        "id": "containerEleccionPines",
+        "designer|userClassName": "containerEleccionPines",
+        "designer|userAlias": "mycontainer3",
         "layout": "fit"
     },
-    "designerId": "9caaeeae-7691-4566-9457-c31faa249000",
+    "designerId": "247c740f-c19f-443c-a9dd-dd278986564c",
     "cn": [
         {
             "type": "Ext.Toolbar",
@@ -22,9 +22,9 @@
             "codeClass": null,
             "userConfig": {
                 "docked": "top",
-                "title": "Mapa"
+                "title": "Marcar pin"
             },
-            "designerId": "6238737c-0f37-4b52-9b31-1bac8317da3f",
+            "designerId": "8ad67d3c-eea5-4b60-b450-a4a508acf1bb",
             "cn": [
                 {
                     "type": "Ext.Button",
@@ -34,11 +34,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "right": "3%",
                         "width": "20%",
-                        "iconCls": "refresh",
-                        "text": null
+                        "text": "Atrás"
                     },
-                    "designerId": "d019b06a-50c7-49a5-8ee5-59fe82922d84",
+                    "designerId": "f45f82f5-bee6-4afa-9347-f20f9d9f3c99",
                     "cn": [
                         {
                             "type": "fixedfunction",
@@ -54,10 +54,10 @@
                                     "event"
                                 ],
                                 "implHandler": [
-                                    "Ext.getCmp('mapaDesplieguePines').getMap().fitBounds(limitesPinesParadas);"
+                                    "Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerInfo'));"
                                 ]
                             },
-                            "designerId": "f04545fc-91b7-44df-9d6a-1fd247ee39e7"
+                            "designerId": "d19501a9-c2ee-4f3e-85bf-5c0458915170"
                         }
                     ]
                 }
@@ -70,8 +70,8 @@
                 "type": "array"
             },
             "codeClass": null,
-            "designerId": "9d6acedb-fac7-4351-80fc-3cf2ea37573c",
-            "masterInstanceId": "7aa12b71-1bcc-4972-b1d3-453ec81d322a"
+            "designerId": "4eabb13a-8a86-4eb2-9986-bf4a7e2da5c2",
+            "masterInstanceId": "6691bd17-86d6-4949-afb5-5fcfa1690c61"
         }
     ]
 }

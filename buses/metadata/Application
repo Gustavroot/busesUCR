@@ -8,20 +8,85 @@
     "userConfig": {
         "models": [
             "modelBusesUCR",
-            "MyModel"
+            "modelPinesParadas"
         ],
         "stores": [
             "storeBusesUCR",
-            "MyJsonPStore"
+            "storePinesParadas"
         ],
         "views": [
-            "MyTabPanel",
+            "tabPanelPrincipal",
             "containerInfo",
             "containerDescripProyecto",
             "containerMapaPrinc",
-            "MyMap"
+            "mapaDesplieguePines",
+            "containerEleccionPines",
+            "mapaEleccionPines"
         ],
         "name": "MyApp"
     },
-    "designerId": "application"
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "insertarPinEnMapa",
+                "designer|params": [
+                    "lat",
+                    "lng",
+                    "idMap",
+                    "name",
+                    "boundsObject",
+                    "iconURL"
+                ],
+                "implHandler": [
+                    "var point = new google.maps.LatLng(lat,lng);",
+                    "",
+                    "if(iconURL!==undefined){",
+                    "    var iconoPinParada=new google.maps.MarkerImage(iconURL,null,null,null,new google.maps.Size(35,35));",
+                    "    var marker = new google.maps.Marker({",
+                    "        map: Ext.getCmp(idMap).getMap(),",
+                    "        position: point,",
+                    "        icon: iconoPinParada",
+                    "    });",
+                    "}",
+                    "else{",
+                    "    var marker = new google.maps.Marker({",
+                    "        map: Ext.getCmp(idMap).getMap(),",
+                    "        position: point",
+                    "    });",
+                    "}",
+                    "",
+                    "",
+                    "//Ext.getCmp(idMap).setMapCenter(point);",
+                    "",
+                    "//markersPinesParadas.push(marker);",
+                    "boundsObject.extend(point);",
+                    "Ext.getCmp(idMap).getMap().fitBounds(boundsObject);"
+                ]
+            },
+            "designerId": "6d3a6216-8b14-4665-854e-64b3c5a02801"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "//Array de pines",
+                    "//markersPinesParadas=[];"
+                ]
+            },
+            "designerId": "1fe46d5e-2f36-489c-8da7-982bb924f70f"
+        }
+    ]
 }
