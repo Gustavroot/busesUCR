@@ -6,11 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "model": "modelPinesParadas",
-        "storeId": "storePinesParadas",
-        "designer|userClassName": "storePinesParadas"
+        "model": "modelDespliegueInfo",
+        "storeId": "storeDespliegueInfo",
+        "designer|userClassName": "storeDespliegueInfo"
     },
-    "designerId": "3025358e-ebaa-4e93-af04-b90bb956b954",
+    "designerId": "1feb3725-2ca4-454f-ae80-0fbd5cb3eae6",
     "cn": [
         {
             "type": "Ext.data.proxy.JsonP",
@@ -20,9 +20,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": "http://faraday.eie.ucr.ac.cr/map/php/json_stop_markers.php"
+                "url": "http://faraday.eie.ucr.ac.cr/map/php/json_stop_info.php"
             },
-            "designerId": "30e35175-e147-485b-87c7-a8a12ae96f0b",
+            "designerId": "fd8529bf-0673-42bb-882a-e707ad5c663f",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -34,7 +34,7 @@
                     "userConfig": {
                         "rootProperty": "Faraday"
                     },
-                    "designerId": "e6996c9e-a70a-433f-a2c4-5dbc3f6d692d"
+                    "designerId": "f8712d43-899c-417d-8cfd-6d3d1cf7a45c"
                 }
             ]
         }

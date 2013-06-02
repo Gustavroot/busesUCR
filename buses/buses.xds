@@ -114,6 +114,38 @@
                 "app/view/mapaEleccionPines.js"
             ],
             "className": "mapaEleccionPines"
+        },
+        "1feb3725-2ca4-454f-ae80-0fbd5cb3eae6": {
+            "paths": [
+                "metadata/store/storeDespliegueInfo",
+                "app/store/override/storeDespliegueInfo.js",
+                "app/store/storeDespliegueInfo.js"
+            ],
+            "className": "storeDespliegueInfo"
+        },
+        "f8fc480d-53c1-4496-8bfe-4c3e5049898e": {
+            "paths": [
+                "metadata/model/modelDespliegueInfo",
+                "app/model/override/modelDespliegueInfo.js",
+                "app/model/modelDespliegueInfo.js"
+            ],
+            "className": "modelDespliegueInfo"
+        },
+        "97467f63-5113-434c-baa0-4ad5428f0b1d": {
+            "paths": [
+                "metadata/model/modelDespliegueInfoBuses",
+                "app/model/override/modelDespliegueInfoBuses.js",
+                "app/model/modelDespliegueInfoBuses.js"
+            ],
+            "className": "modelDespliegueInfoBuses"
+        },
+        "b73e37b1-b462-4d05-9f8e-17a3d9083325": {
+            "paths": [
+                "metadata/store/storeDespliegueInfoBuses",
+                "app/store/override/storeDespliegueInfoBuses.js",
+                "app/store/storeDespliegueInfoBuses.js"
+            ],
+            "className": "storeDespliegueInfoBuses"
         }
     },
     "viewOrderMap": {
@@ -128,12 +160,16 @@
         ],
         "store": [
             "163ae345-16e2-41a3-8649-187162f2dddb",
-            "3025358e-ebaa-4e93-af04-b90bb956b954"
+            "3025358e-ebaa-4e93-af04-b90bb956b954",
+            "1feb3725-2ca4-454f-ae80-0fbd5cb3eae6",
+            "b73e37b1-b462-4d05-9f8e-17a3d9083325"
         ],
         "controller": [],
         "model": [
             "5fe17ef2-ad8d-4303-9eb1-9382b33fa735",
-            "75e44e1c-fc80-4c76-8ba6-45408a9133a2"
+            "75e44e1c-fc80-4c76-8ba6-45408a9133a2",
+            "f8fc480d-53c1-4496-8bfe-4c3e5049898e",
+            "97467f63-5113-434c-baa0-4ad5428f0b1d"
         ],
         "resource": [
             "d8157a21-7817-40ab-ae68-e4974ce8974a",

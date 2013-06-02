@@ -35,7 +35,9 @@
                 "fn": "onTabpanelActiveItemChange",
                 "implHandler": [
                     "if(value==Ext.getCmp('containerMapaPrinc')){",
-                    "    Ext.getStore('storeBusesUCR').load();",
+                    "    Ext.getStore('storeBusesUCR').load(function(records){",
+                    "        MyApp.app.loadDelStoreBusesUCR(records);",
+                    "    });",
                     "    MyApp.app.funcionEjecRefreshBg();",
                     "}",
                     "if(oldValue==Ext.getCmp('containerMapaPrinc')){",

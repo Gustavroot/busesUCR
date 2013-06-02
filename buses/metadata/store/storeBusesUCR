@@ -39,39 +39,6 @@
                     "designerId": "de9d15fe-0443-43b2-83b6-e1388dd4ac11"
                 }
             ]
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onJsonpstoreLoad",
-                "implHandler": [
-                    "/*",
-                    "while(markersPinesBuses[0]){",
-                    "markersPinesBuses.pop().setMap(null);",
-                    "}",
-                    "for(var i=0; i<records.length; i++){",
-                    "var j=i+1;",
-                    "MyApp.app.insertarPinEnMapa(records[i].get('Latitude'),records[i].get('Longitude'),'mapaDesplieguePines',\"Bus \"+j,markersPinesBuses,'bus.png');",
-                    "}",
-                    "*/",
-                    "if(markersPinesBuses.length===0){",
-                    "    for(var i=0; i<records.length; i++){",
-                    "        var j=i+1;",
-                    "        MyApp.app.insertarPinEnMapa(records[i].get('Latitude'),records[i].get('Longitude'),'mapaDesplieguePines',\"Bus \"+j,markersPinesBuses,'bus.png');",
-                    "    }",
-                    "}",
-                    "else{",
-                    "    MyApp.app.refrescadoPosMarkers(markersPinesBuses,records);",
-                    "}"
-                ],
-                "name": "load"
-            },
-            "designerId": "1699c0ea-c0ce-4c7a-915f-5109c12b0dff"
         }
     ]
 }

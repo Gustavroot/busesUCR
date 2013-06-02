@@ -47,7 +47,7 @@ Ext.define('MyApp.view.containerInfo', {
                     {
                         xtype: 'button',
                         handler: function(button, event) {
-                            Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerEleccionPines'));
+                            MyApp.app.ejectBotonesDespliegue('parada');
                         },
                         height: '10%',
                         left: '15%',
@@ -58,7 +58,7 @@ Ext.define('MyApp.view.containerInfo', {
                     {
                         xtype: 'button',
                         handler: function(button, event) {
-                            Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerEleccionPines'));
+                            MyApp.app.ejectBotonesDespliegue('bus');
                         },
                         height: '10%',
                         left: '15%',
@@ -88,9 +88,9 @@ Ext.define('MyApp.view.containerInfo', {
                         xtype: 'list',
                         id: 'listaDespliegueInfo',
                         itemTpl: [
-                            '{Name}'
+                            '{idBus} {Time} {Distance}'
                         ],
-                        store: 'storePinesParadas'
+                        store: 'storeDespliegueInfo'
                     }
                 ]
             }

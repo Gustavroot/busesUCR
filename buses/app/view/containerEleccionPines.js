@@ -36,6 +36,7 @@ Ext.define('MyApp.view.containerEleccionPines', {
                         xtype: 'button',
                         handler: function(button, event) {
                             Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerInfo'));
+                            Ext.getCmp('tabPanelPrincipal').getTabBar().setHidden(0);
                         },
                         right: '3%',
                         width: '20%',

@@ -108,7 +108,7 @@
                                     "event"
                                 ],
                                 "implHandler": [
-                                    "Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerEleccionPines'));"
+                                    "MyApp.app.ejectBotonesDespliegue('parada');"
                                 ]
                             },
                             "designerId": "ef38fa30-1271-45ad-84a8-f6cc2d88ac48"
@@ -145,7 +145,7 @@
                                     "event"
                                 ],
                                 "implHandler": [
-                                    "Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerEleccionPines'));"
+                                    "MyApp.app.ejectBotonesDespliegue('bus');"
                                 ]
                             },
                             "designerId": "ce003737-9659-4bce-8ded-355ef54a2575"
@@ -193,7 +193,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "id": "listaDespliegueInfo",
-                        "store": "storePinesParadas"
+                        "store": "storeDespliegueInfo"
                     },
                     "designerId": "4d9a79d5-696f-4d6e-b0ee-02ce113aff66",
                     "cn": [
@@ -206,7 +206,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "implHandler": [
-                                    "{Name}"
+                                    "{idBus} {Time} {Distance}"
                                 ],
                                 "designer|displayName": "itemTpl"
                             },

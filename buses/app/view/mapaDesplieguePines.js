@@ -30,7 +30,9 @@ Ext.define('MyApp.view.mapaDesplieguePines', {
     onMapaDesplieguePinesMaprender: function(map, gmap, eOpts) {
         this.setMasked({xtype: "loadmask", message: "Espere por favor..."});
         setTimeout(function(){Ext.getCmp('mapaDesplieguePines').setMasked(false);},1500);
-        Ext.getStore('storePinesParadas').load();
+        Ext.getStore('storePinesParadas').load(function(records){
+            MyApp.app.loadStorePinesParadas(records);
+        });
         MyApp.app.refrescadoPinesParadas();
     }
 

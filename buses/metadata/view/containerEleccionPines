@@ -54,7 +54,8 @@
                                     "event"
                                 ],
                                 "implHandler": [
-                                    "Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerInfo'));"
+                                    "Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerInfo'));",
+                                    "Ext.getCmp('tabPanelPrincipal').getTabBar().setHidden(0);"
                                 ]
                             },
                             "designerId": "d19501a9-c2ee-4f3e-85bf-5c0458915170"

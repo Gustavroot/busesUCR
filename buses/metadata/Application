@@ -8,11 +8,15 @@
     "userConfig": {
         "models": [
             "modelBusesUCR",
-            "modelPinesParadas"
+            "modelPinesParadas",
+            "modelDespliegueInfo",
+            "modelDespliegueInfoBuses"
         ],
         "stores": [
             "storeBusesUCR",
-            "storePinesParadas"
+            "storePinesParadas",
+            "storeDespliegueInfo",
+            "storeDespliegueInfoBuses"
         ],
         "views": [
             "tabPanelPrincipal",
@@ -81,7 +85,14 @@
                     "google.maps.event.addListener(marker, \"click\", function() {",
                     "    infoWindow.setContent(stringInfoWindow);",
                     "    infoWindow.open(Ext.getCmp(idMap).getMap(), marker);",
-                    "});"
+                    "});",
+                    "try{",
+                    "    if(boundsObject==limitesPinesParadas){",
+                    "        variableGlobalZoomPinesParadas=Ext.getCmp(idMap).getMap().getZoom();",
+                    "        //alert(Ext.getCmp(idMap).getMap().getZoom());",
+                    "    }",
+                    "}",
+                    "catch(e){}"
                 ]
             },
             "designerId": "6d3a6216-8b14-4665-854e-64b3c5a02801"
@@ -98,7 +109,8 @@
                 "implHandler": [
                     "//Array de pines",
                     "markersPinesBuses=[];",
-                    "",
+                    "arrayMarkersDiplayInfo=[];",
+                    "limitesPinesEleccion = new google.maps.LatLngBounds();",
                     "limitesPinesBuses = new google.maps.LatLngBounds();"
                 ]
             },
@@ -115,7 +127,9 @@
                 "fn": "funcionEjecRefreshBg",
                 "implHandler": [
                     "varTimeoutEjecRefreshBg=setTimeout(function(){",
-                    "    Ext.getStore('storeBusesUCR').load();",
+                    "    Ext.getStore('storeBusesUCR').load(function(store,records){",
+                    "        MyApp.app.loadDelStoreBusesUCR(records);",
+                    "    });",
                     "    MyApp.app.funcionEjecRefreshBg();",
                     "},2500);"
                 ]
@@ -155,12 +169,208 @@
                 "fn": "refrescadoPinesParadas",
                 "implHandler": [
                     "setTimeout(function(){",
-                    "    Ext.getStore('storePinesParadas').load();",
+                    "    Ext.getStore('storePinesParadas').load(function(records){",
+                    "        MyApp.app.loadStorePinesParadas(records);",
+                    "    });",
                     "    MyApp.app.refrescadoPinesParadas();",
                     "},300000);"
                 ]
             },
             "designerId": "96c5843a-5e96-4000-bb5b-71724dd3a430"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadDelStoreBusesUCR",
+                "designer|params": [
+                    "records"
+                ],
+                "implHandler": [
+                    "if(markersPinesBuses.length===0){",
+                    "    for(var i=0; i<records.length; i++){",
+                    "        var j=i+1;",
+                    "        MyApp.app.insertarPinEnMapa(records[i].get('Latitude'),records[i].get('Longitude'),'mapaDesplieguePines',\"Bus \"+j,markersPinesBuses,'bus.png');",
+                    "    }",
+                    "}",
+                    "else{",
+                    "    MyApp.app.refrescadoPosMarkers(markersPinesBuses,records);",
+                    "}"
+                ]
+            },
+            "designerId": "24f71c60-32c2-48d2-bc17-83d1f18ee4f6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadStorePinesParadas",
+                "designer|params": [
+                    "records"
+                ],
+                "implHandler": [
+                    "limitesPinesParadas = new google.maps.LatLngBounds();",
+                    "",
+                    "for(var i=0; i<records.length; i++){",
+                    "    MyApp.app.insertarPinEnMapa(records[i].get('Latitude'),records[i].get('Longitude'),'mapaDesplieguePines',records[i].get('Name'),limitesPinesParadas,'busstop.png');",
+                    "}"
+                ]
+            },
+            "designerId": "6179186c-2486-42f5-bc23-878d7cb3d33a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "load2StorePinesParadas",
+                "designer|params": [
+                    "records",
+                    "target"
+                ],
+                "implHandler": [
+                    "limitesPinesEleccion = new google.maps.LatLngBounds();",
+                    "",
+                    "for(var i=0; i<records.length; i++){",
+                    "    MyApp.app.insertarPinesEleccionDisplay(records[i].get('Latitude'),records[i].get('Longitude'),'mapaEleccionPines','busstop.png','parada',records[i].get('Name'),target);",
+                    "}",
+                    "//lat, lng, idMaps, iconURL, tipoPin"
+                ]
+            },
+            "designerId": "26353b4c-783c-4ff1-b09b-ed7feccb1238"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "insertarPinesEleccionDisplay",
+                "designer|params": [
+                    "lat",
+                    "lng",
+                    "idMap",
+                    "iconURL",
+                    "tipoPin",
+                    "identificador",
+                    "target"
+                ],
+                "implHandler": [
+                    "var point = new google.maps.LatLng(lat,lng);",
+                    "",
+                    "if(iconURL!==undefined){",
+                    "    var iconoPinParada=new google.maps.MarkerImage(iconURL,null,null,null,new google.maps.Size(35,35));",
+                    "    var marker = new google.maps.Marker({",
+                    "        map: Ext.getCmp(idMap).getMap(),",
+                    "        position: point,",
+                    "        icon: iconoPinParada",
+                    "    });",
+                    "}",
+                    "else{",
+                    "    var marker = new google.maps.Marker({",
+                    "        map: Ext.getCmp(idMap).getMap(),",
+                    "        position: point",
+                    "    });",
+                    "}",
+                    "",
+                    "limitesPinesEleccion.extend(point);",
+                    "if(tipoPin=='parada'){",
+                    "    Ext.getCmp(idMap).getMap().fitBounds(limitesPinesEleccion);",
+                    "}",
+                    "",
+                    "//AQUI SE LE APLICA LA PRIORIDAD A LOS PINES EN EL MAPA",
+                    "",
+                    "arrayMarkersDiplayInfo.push(marker);",
+                    "",
+                    "google.maps.event.addListener(marker, \"click\", function() {",
+                    "    if(target=='parada'){",
+                    "        if(tipoPin=='parada'){",
+                    "            alert('esta es una parada con identificador: '+identificador);",
+                    "            //Ext.getStore('storeDespliegueInfo').getProxy().setExtraParam('busstopname',identificador);",
+                    "        }",
+                    "        else{",
+                    "            alert('no!');",
+                    "        }",
+                    "    }",
+                    "    else{",
+                    "        if(tipoPin=='parada'){",
+                    "            alert('no!');",
+                    "            //Ext.getStore('storeDespliegueInfo').getProxy().setExtraParam('busstopname',identificador);",
+                    "        }",
+                    "        else{",
+                    "            alert('este es un bus con identificador: '+identificador);",
+                    "        }",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "34102610-890e-4c52-b28a-11b443ced80f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "load2DelStoreBusesUCR",
+                "designer|params": [
+                    "records",
+                    "target"
+                ],
+                "implHandler": [
+                    "limitesPinesEleccion = new google.maps.LatLngBounds();",
+                    "",
+                    "for(var i=0; i<records.length; i++){",
+                    "    MyApp.app.insertarPinesEleccionDisplay(records[i].get('Latitude'),records[i].get('Longitude'),'mapaEleccionPines','bus.png','bus',records[i].get('idBus'),target);",
+                    "}"
+                ]
+            },
+            "designerId": "5b5557ba-75c2-44b7-b310-a85b2fc37f85"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "ejectBotonesDespliegue",
+                "designer|params": [
+                    "target"
+                ],
+                "implHandler": [
+                    "while(arrayMarkersDiplayInfo[0]){",
+                    "    arrayMarkersDiplayInfo.pop().setMap(null);",
+                    "}",
+                    "",
+                    "Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerEleccionPines'));",
+                    "Ext.getCmp('tabPanelPrincipal').getTabBar().setHidden(1);",
+                    "",
+                    "Ext.getStore('storeBusesUCR').load(function(records){",
+                    "    MyApp.app.load2DelStoreBusesUCR(records,target);",
+                    "});",
+                    "Ext.getStore('storePinesParadas').load(function(records){",
+                    "    MyApp.app.load2StorePinesParadas(records,target);",
+                    "});"
+                ]
+            },
+            "designerId": "93ae6a60-6cc9-4888-ae1c-b01ba1518208"
         }
     ]
 }
