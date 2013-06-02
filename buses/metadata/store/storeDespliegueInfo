@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "autoLoad": true,
         "model": "modelDespliegueInfo",
         "storeId": "storeDespliegueInfo",
         "designer|userClassName": "storeDespliegueInfo"

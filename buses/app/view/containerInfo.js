@@ -87,9 +87,11 @@ Ext.define('MyApp.view.containerInfo', {
                     {
                         xtype: 'list',
                         id: 'listaDespliegueInfo',
+                        emptyText: 'Vacío',
                         itemTpl: [
                             '{Time} {Distance}'
                         ],
+                        loadingText: 'Cargando...',
                         store: 'storeDespliegueInfo'
                     }
                 ]

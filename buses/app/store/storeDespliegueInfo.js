@@ -21,6 +21,7 @@ Ext.define('MyApp.store.storeDespliegueInfo', {
     ],
 
     config: {
+        autoLoad: true,
         model: 'MyApp.model.modelDespliegueInfo',
         storeId: 'storeDespliegueInfo',
         proxy: {
