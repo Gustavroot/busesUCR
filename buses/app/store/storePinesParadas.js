@@ -40,14 +40,11 @@ Ext.define('MyApp.store.storePinesParadas', {
     },
 
     onJsonpstoreLoad: function(store, records, successful, operation, eOpts) {
-        //while(markersPinesParadas[0]){
-        //    markersPinesParadas.pop().setMap(null);
-        //}
         limitesPinesParadas = new google.maps.LatLngBounds();
 
         for(var i=0; i<records.length; i++){
             MyApp.app.insertarPinEnMapa(records[i].get('Latitude'),records[i].get('Longitude'),'mapaDesplieguePines',records[i].get('Name'),limitesPinesParadas,'busstop.png');
-        }	
+        }
     }
 
 });

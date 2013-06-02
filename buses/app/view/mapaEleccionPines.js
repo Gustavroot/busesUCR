@@ -18,7 +18,17 @@ Ext.define('MyApp.view.mapaEleccionPines', {
     alias: 'widget.mapaeleccionpines',
 
     config: {
-        id: 'mapaEleccionPines'
+        id: 'mapaEleccionPines',
+        listeners: [
+            {
+                fn: 'onMapaEleccionPinesMaprender',
+                event: 'maprender'
+            }
+        ]
+    },
+
+    onMapaEleccionPinesMaprender: function(map, gmap, eOpts) {
+
     }
 
 });

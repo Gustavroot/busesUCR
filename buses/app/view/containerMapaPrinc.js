@@ -36,6 +36,7 @@ Ext.define('MyApp.view.containerMapaPrinc', {
                         xtype: 'button',
                         handler: function(button, event) {
                             Ext.getCmp('mapaDesplieguePines').getMap().fitBounds(limitesPinesParadas);
+                            Ext.getStore('storeBusesUCR').load();
                         },
                         width: '20%',
                         iconCls: 'refresh'

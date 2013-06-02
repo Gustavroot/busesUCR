@@ -52,15 +52,22 @@ Ext.define('MyApp.view.tabPanelPrincipal', {
             },
             {
                 xtype: 'mycontainer3',
-                iconCls: 'info',
-                hidden: true
+                hidden: true,
+                iconCls: 'info'
             }
         ]
     },
 
     onTabpanelActiveItemChange: function(container, value, oldValue, eOpts) {
         if(value==Ext.getCmp('containerMapaPrinc')){
-
+            Ext.getStore('storeBusesUCR').load();
+            MyApp.app.funcionEjecRefreshBg();
+        }
+        if(oldValue==Ext.getCmp('containerMapaPrinc')){
+            try{
+                clearTimeout(varTimeoutEjecRefreshBg);
+            }
+            catch(e){}
         }
     }
 

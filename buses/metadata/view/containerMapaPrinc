@@ -54,7 +54,8 @@
                                     "event"
                                 ],
                                 "implHandler": [
-                                    "Ext.getCmp('mapaDesplieguePines').getMap().fitBounds(limitesPinesParadas);"
+                                    "Ext.getCmp('mapaDesplieguePines').getMap().fitBounds(limitesPinesParadas);",
+                                    "Ext.getStore('storeBusesUCR').load();"
                                 ]
                             },
                             "designerId": "f04545fc-91b7-44df-9d6a-1fd247ee39e7"

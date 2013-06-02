@@ -38,29 +38,27 @@ Ext.define('MyApp.store.storeBusesUCR', {
                 fn: 'onJsonpstoreLoad',
                 event: 'load'
             }
-        ],
-        fields: [
-            {
-                name: 'idBus'
-            },
-            {
-                name: 'idReg'
-            },
-            {
-                name: 'Latitude'
-            },
-            {
-                name: 'Longitude'
-            },
-            {
-                name: 'DateTime'
-            }
         ]
     },
 
     onJsonpstoreLoad: function(store, records, successful, operation, eOpts) {
+        /*
+        while(markersPinesBuses[0]){
+        markersPinesBuses.pop().setMap(null);
+        }
         for(var i=0; i<records.length; i++){
-
+        var j=i+1;
+        MyApp.app.insertarPinEnMapa(records[i].get('Latitude'),records[i].get('Longitude'),'mapaDesplieguePines',"Bus "+j,markersPinesBuses,'bus.png');
+        }
+        */
+        if(markersPinesBuses.length===0){
+            for(var i=0; i<records.length; i++){
+                var j=i+1;
+                MyApp.app.insertarPinEnMapa(records[i].get('Latitude'),records[i].get('Longitude'),'mapaDesplieguePines',"Bus "+j,markersPinesBuses,'bus.png');
+            }
+        }
+        else{
+            MyApp.app.refrescadoPosMarkers(markersPinesBuses,records);
         }
     }
 

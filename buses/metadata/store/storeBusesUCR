@@ -50,73 +50,28 @@
             "userConfig": {
                 "fn": "onJsonpstoreLoad",
                 "implHandler": [
+                    "/*",
+                    "while(markersPinesBuses[0]){",
+                    "markersPinesBuses.pop().setMap(null);",
+                    "}",
                     "for(var i=0; i<records.length; i++){",
-                    "    ",
+                    "var j=i+1;",
+                    "MyApp.app.insertarPinEnMapa(records[i].get('Latitude'),records[i].get('Longitude'),'mapaDesplieguePines',\"Bus \"+j,markersPinesBuses,'bus.png');",
+                    "}",
+                    "*/",
+                    "if(markersPinesBuses.length===0){",
+                    "    for(var i=0; i<records.length; i++){",
+                    "        var j=i+1;",
+                    "        MyApp.app.insertarPinEnMapa(records[i].get('Latitude'),records[i].get('Longitude'),'mapaDesplieguePines',\"Bus \"+j,markersPinesBuses,'bus.png');",
+                    "    }",
+                    "}",
+                    "else{",
+                    "    MyApp.app.refrescadoPosMarkers(markersPinesBuses,records);",
                     "}"
                 ],
                 "name": "load"
             },
             "designerId": "1699c0ea-c0ce-4c7a-915f-5109c12b0dff"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "idBus"
-            },
-            "designerId": "c63a9676-fe67-40d4-976f-07fc0d95d4c0"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "idReg"
-            },
-            "designerId": "6b11b3cb-e76a-41be-9f3a-0acbc78b9746"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "Latitude"
-            },
-            "designerId": "efc9397c-a0c5-40bf-8acc-0afd2bbb0ded"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "Longitude"
-            },
-            "designerId": "fd25c94c-e5ff-45d9-876e-9091ca1e99f7"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "DateTime"
-            },
-            "designerId": "97163b74-ce9b-44d6-b0e0-ac1433b0ddd4"
         }
     ]
 }

@@ -38,7 +38,7 @@ Ext.application({
     ],
     name: 'MyApp',
 
-    insertarPinEnMapa: function(lat, lng, idMap, name, boundsObject, iconURL) {
+    insertarPinEnMapa: function(lat, lng, idMap, stringInfoWindow, boundsObject, iconURL) {
         var point = new google.maps.LatLng(lat,lng);
 
         if(iconURL!==undefined){
@@ -60,14 +60,48 @@ Ext.application({
         //Ext.getCmp(idMap).setMapCenter(point);
 
         //markersPinesParadas.push(marker);
-        boundsObject.extend(point);
-        Ext.getCmp(idMap).getMap().fitBounds(boundsObject);
+        try{
+            if(boundsObject==limitesPinesParadas){
+                boundsObject.extend(point);
+                Ext.getCmp(idMap).getMap().fitBounds(boundsObject);
+            }
+        }
+        catch(e){}
+        if(boundsObject==markersPinesBuses){
+            markersPinesBuses.push(marker);
+        }
+
+        var infoWindow = new google.maps.InfoWindow();
+        google.maps.event.addListener(marker, "click", function() {
+            infoWindow.setContent(stringInfoWindow);
+            infoWindow.open(Ext.getCmp(idMap).getMap(), marker);
+        });
     },
 
     launch: function() {
         //Array de pines
-        //markersPinesParadas=[];
+        markersPinesBuses=[];
+
+        limitesPinesBuses = new google.maps.LatLngBounds();
         Ext.create('MyApp.view.tabPanelPrincipal', {fullscreen: true});
+    },
+
+    funcionEjecRefreshBg: function() {
+        varTimeoutEjecRefreshBg=setTimeout(function(){
+            Ext.getStore('storeBusesUCR').load();
+            MyApp.app.funcionEjecRefreshBg();
+        },2500);
+    },
+
+    refrescadoPosMarkers: function(arrayMarkers, recordsStore) {
+        for(var i=0; i<arrayMarkers.length; i++){
+            var point = new google.maps.LatLng(recordsStore[i].get('Latitude'),recordsStore[i].get('Longitude'));
+            arrayMarkers[i].setPosition(point);
+        }
+    },
+
+    refrescadoPinesParadas: function() {
+
     }
 
 });

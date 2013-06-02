@@ -10,5 +10,23 @@
         "designer|userClassName": "mapaEleccionPines",
         "designer|userAlias": "mapaeleccionpines"
     },
-    "designerId": "6691bd17-86d6-4949-afb5-5fcfa1690c61"
+    "designerId": "6691bd17-86d6-4949-afb5-5fcfa1690c61",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onMapaEleccionPinesMaprender",
+                "implHandler": [
+                    ""
+                ],
+                "name": "maprender"
+            },
+            "designerId": "5a9f8f7f-bb32-408f-917a-bc6e214b56c8"
+        }
+    ]
 }

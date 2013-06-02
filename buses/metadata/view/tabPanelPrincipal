@@ -35,7 +35,14 @@
                 "fn": "onTabpanelActiveItemChange",
                 "implHandler": [
                     "if(value==Ext.getCmp('containerMapaPrinc')){",
-                    "    Ext.getStore('storePinesParadas').load();",
+                    "    Ext.getStore('storeBusesUCR').load();",
+                    "    MyApp.app.funcionEjecRefreshBg();",
+                    "}",
+                    "if(oldValue==Ext.getCmp('containerMapaPrinc')){",
+                    "    try{",
+                    "        clearTimeout(varTimeoutEjecRefreshBg);",
+                    "    }",
+                    "    catch(e){}",
                     "}"
                 ],
                 "name": "activeitemchange"
@@ -92,8 +99,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "iconCls": "info",
-                "hidden": true
+                "hidden": true,
+                "iconCls": "info"
             },
             "designerId": "5c426da9-8a29-4077-88d2-03c8859cd880",
             "masterInstanceId": "247c740f-c19f-443c-a9dd-dd278986564c"

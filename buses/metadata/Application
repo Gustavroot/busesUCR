@@ -40,7 +40,7 @@
                     "lat",
                     "lng",
                     "idMap",
-                    "name",
+                    "stringInfoWindow",
                     "boundsObject",
                     "iconURL"
                 ],
@@ -66,8 +66,22 @@
                     "//Ext.getCmp(idMap).setMapCenter(point);",
                     "",
                     "//markersPinesParadas.push(marker);",
-                    "boundsObject.extend(point);",
-                    "Ext.getCmp(idMap).getMap().fitBounds(boundsObject);"
+                    "try{",
+                    "    if(boundsObject==limitesPinesParadas){",
+                    "        boundsObject.extend(point);",
+                    "        Ext.getCmp(idMap).getMap().fitBounds(boundsObject);",
+                    "    }",
+                    "}",
+                    "catch(e){}",
+                    "if(boundsObject==markersPinesBuses){",
+                    "    markersPinesBuses.push(marker);",
+                    "}",
+                    "",
+                    "var infoWindow = new google.maps.InfoWindow();",
+                    "google.maps.event.addListener(marker, \"click\", function() {",
+                    "    infoWindow.setContent(stringInfoWindow);",
+                    "    infoWindow.open(Ext.getCmp(idMap).getMap(), marker);",
+                    "});"
                 ]
             },
             "designerId": "6d3a6216-8b14-4665-854e-64b3c5a02801"
@@ -83,10 +97,67 @@
                 "fn": "launch",
                 "implHandler": [
                     "//Array de pines",
-                    "//markersPinesParadas=[];"
+                    "markersPinesBuses=[];",
+                    "",
+                    "limitesPinesBuses = new google.maps.LatLngBounds();"
                 ]
             },
             "designerId": "1fe46d5e-2f36-489c-8da7-982bb924f70f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "funcionEjecRefreshBg",
+                "implHandler": [
+                    "varTimeoutEjecRefreshBg=setTimeout(function(){",
+                    "    Ext.getStore('storeBusesUCR').load();",
+                    "    MyApp.app.funcionEjecRefreshBg();",
+                    "},2500);"
+                ]
+            },
+            "designerId": "3ec17d6d-512a-4058-8f62-ce220b89170e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "refrescadoPosMarkers",
+                "designer|params": [
+                    "arrayMarkers",
+                    "recordsStore"
+                ],
+                "implHandler": [
+                    "for(var i=0; i<arrayMarkers.length; i++){",
+                    "    var point = new google.maps.LatLng(recordsStore[i].get('Latitude'),recordsStore[i].get('Longitude'));",
+                    "    arrayMarkers[i].setPosition(point);",
+                    "}"
+                ]
+            },
+            "designerId": "2c4ee39f-775e-4063-a98e-b8737d9edd3a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "refrescadoPinesParadas",
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "96c5843a-5e96-4000-bb5b-71724dd3a430"
         }
     ]
 }
