@@ -71,6 +71,9 @@ Ext.define('MyApp.view.tabPanelPrincipal', {
             }
             catch(e){}
         }
+        if(oldValue==Ext.getCmp('containerEleccionPines')){
+            clearTimeout(variableTimeOutRefreshDespliegueInfo);
+        }
     }
 
 });

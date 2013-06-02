@@ -88,7 +88,7 @@ Ext.define('MyApp.view.containerInfo', {
                         xtype: 'list',
                         id: 'listaDespliegueInfo',
                         itemTpl: [
-                            '{idBus} {Time} {Distance}'
+                            '{Time} {Distance}'
                         ],
                         store: 'storeDespliegueInfo'
                     }

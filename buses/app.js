@@ -92,7 +92,8 @@ Ext.application({
     launch: function() {
         //Array de pines
         markersPinesBuses=[];
-        arrayMarkersDiplayInfo=[];
+        arrayMarkersDiplayInfo1=[];
+        arrayMarkersDiplayInfo2=[];
         limitesPinesEleccion = new google.maps.LatLngBounds();
         limitesPinesBuses = new google.maps.LatLngBounds();
         Ext.create('MyApp.view.tabPanelPrincipal', {fullscreen: true});
@@ -177,25 +178,35 @@ Ext.application({
 
         //AQUI SE LE APLICA LA PRIORIDAD A LOS PINES EN EL MAPA
 
-        arrayMarkersDiplayInfo.push(marker);
+        if(tipoPin=='parada'){
+            arrayMarkersDiplayInfo1.push(marker);
+        }
+        else{
+            arrayMarkersDiplayInfo2.push(marker);
+        }
 
         google.maps.event.addListener(marker, "click", function() {
             if(target=='parada'){
+                Ext.getCmp('listaDespliegueInfo').setStore(Ext.getStore('storeDespliegueInfo'));
                 if(tipoPin=='parada'){
-                    alert('esta es una parada con identificador: '+identificador);
-                    //Ext.getStore('storeDespliegueInfo').getProxy().setExtraParam('busstopname',identificador);
+                    //alert('esta es una parada con identificador: '+identificador);
+                    Ext.getStore('storeDespliegueInfo').getProxy().setExtraParam('busstopname',identificador);
+                    Ext.getStore('storeDespliegueInfo').load();
                 }
                 else{
-                    alert('no!');
+                    //alert('no!');
                 }
             }
             else{
+                Ext.getCmp('listaDespliegueInfo').setStore(Ext.getStore('storeDespliegueInfoBuses'));
                 if(tipoPin=='parada'){
-                    alert('no!');
+                    //alert('no!');
                     //Ext.getStore('storeDespliegueInfo').getProxy().setExtraParam('busstopname',identificador);
                 }
                 else{
-                    alert('este es un bus con identificador: '+identificador);
+                    //alert('este es un bus con identificador: '+identificador);
+                    Ext.getStore('storeDespliegueInfoBuses').getProxy().setExtraParam('idbus',identificador);
+                    Ext.getStore('storeDespliegueInfoBuses').load();
                 }
             }
         });
@@ -210,8 +221,11 @@ Ext.application({
     },
 
     ejectBotonesDespliegue: function(target) {
-        while(arrayMarkersDiplayInfo[0]){
-            arrayMarkersDiplayInfo.pop().setMap(null);
+        while(arrayMarkersDiplayInfo1[0]){
+            arrayMarkersDiplayInfo1.pop().setMap(null);
+        }
+        while(arrayMarkersDiplayInfo2[0]){
+            arrayMarkersDiplayInfo2.pop().setMap(null);
         }
 
         Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerEleccionPines'));
@@ -223,6 +237,20 @@ Ext.application({
         Ext.getStore('storePinesParadas').load(function(records){
             MyApp.app.load2StorePinesParadas(records,target);
         });
+
+        MyApp.app.refrescadoPinesDespliegueInfo();
+    },
+
+    refrescadoPinesDespliegueInfo: function(arregloPines, records) {
+        variableTimeOutRefreshDespliegueInfo=setTimeout(function(){
+            Ext.getStore('storeBusesUCR').load(function(records){
+                for(var i=0; i<records.length; i++){
+                    var point = new google.maps.LatLng(records[i].get('Latitude'),records[i].get('Longitude'));
+                    arrayMarkersDiplayInfo2[i].setPosition(point);
+                }
+            });
+            MyApp.app.refrescadoPinesDespliegueInfo();
+        },2500);
     }
 
 });
