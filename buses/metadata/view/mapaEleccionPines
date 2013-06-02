@@ -22,7 +22,8 @@
             "userConfig": {
                 "fn": "onMapaEleccionPinesMaprender",
                 "implHandler": [
-                    ""
+                    "this.setMasked({xtype: \"loadmask\", message: \"Espere por favor...\"});",
+                    "setTimeout(function(){Ext.getCmp('mapaEleccionPines').setMasked(false);},1500);"
                 ],
                 "name": "maprender"
             },

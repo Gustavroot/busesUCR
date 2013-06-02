@@ -101,7 +101,10 @@ Ext.application({
     },
 
     refrescadoPinesParadas: function() {
-
+        setTimeout(function(){
+            Ext.getStore('storePinesParadas').load();
+            MyApp.app.refrescadoPinesParadas();
+        },300000);
     }
 
 });

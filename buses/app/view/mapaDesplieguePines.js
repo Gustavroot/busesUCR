@@ -31,6 +31,7 @@ Ext.define('MyApp.view.mapaDesplieguePines', {
         this.setMasked({xtype: "loadmask", message: "Espere por favor..."});
         setTimeout(function(){Ext.getCmp('mapaDesplieguePines').setMasked(false);},1500);
         Ext.getStore('storePinesParadas').load();
+        MyApp.app.refrescadoPinesParadas();
     }
 
 });

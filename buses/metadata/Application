@@ -154,7 +154,10 @@
             "userConfig": {
                 "fn": "refrescadoPinesParadas",
                 "implHandler": [
-                    ""
+                    "setTimeout(function(){",
+                    "    Ext.getStore('storePinesParadas').load();",
+                    "    MyApp.app.refrescadoPinesParadas();",
+                    "},300000);"
                 ]
             },
             "designerId": "96c5843a-5e96-4000-bb5b-71724dd3a430"
