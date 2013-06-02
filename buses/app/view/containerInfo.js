@@ -78,8 +78,8 @@ Ext.define('MyApp.view.containerInfo', {
             {
                 xtype: 'container',
                 height: '100%',
-                left: '51%',
-                width: '49%',
+                left: '50.2%',
+                width: '49.8%',
                 layout: {
                     type: 'fit'
                 },

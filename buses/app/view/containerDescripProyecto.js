@@ -30,11 +30,11 @@ Ext.define('MyApp.view.containerDescripProyecto', {
             },
             {
                 xtype: 'panel',
-                height: '60%',
+                height: '80%',
                 html: '<center><font color="gray"><p style="font-size: 150%;">Información general</p><p>&nbsp</p><p style="font-size: 100%;">Bla fasdfadsf fr erj flerj lfej rlfj erlfherl helr fhelrh elr lekr hflerhflekrhf lerh fklerhflke hrlfherl hflehrlfhe rlfh elrh flerhlfherlh felrh flerhflehrlf ehrhelrh felrhflehrfeh rlfh erlfh elrhferlhferklh fekrlh klerhfkl erhflkeh rfklrhe flehrfleh rlkerhfklerhkleh rfl</p></font></center>',
-                left: '15%',
-                top: '20%',
-                width: '70%',
+                left: '10%',
+                top: '10%',
+                width: '80%',
                 modal: true,
                 scrollable: 'vertical'
             }
