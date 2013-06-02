@@ -56,7 +56,7 @@
                                     "event"
                                 ],
                                 "implHandler": [
-                                    "Ext.getCmp('listaDespliegueInfo').removeAll();"
+                                    "//Ext.getCmp('listaDespliegueInfo').removeAll();"
                                 ]
                             },
                             "designerId": "df96e496-eb67-4375-8f9e-767975e415da"
@@ -206,7 +206,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "implHandler": [
-                                    "{idBus} {Time} {Distance}"
+                                    "{Time} {Distance}"
                                 ],
                                 "designer|displayName": "itemTpl"
                             },

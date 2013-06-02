@@ -31,7 +31,7 @@ Ext.define('MyApp.view.containerInfo', {
                     {
                         xtype: 'button',
                         handler: function(button, event) {
-                            Ext.getCmp('listaDespliegueInfo').removeAll();
+                            //Ext.getCmp('listaDespliegueInfo').removeAll();
                         },
                         right: '3%',
                         width: '18%',

@@ -148,12 +148,12 @@ Ext.application({
         limitesPinesEleccion = new google.maps.LatLngBounds();
 
         for(var i=0; i<records.length; i++){
-            MyApp.app.insertarPinesEleccionDisplay(records[i].get('Latitude'),records[i].get('Longitude'),'mapaEleccionPines','busstop.png','parada',records[i].get('Name'),target);
+            MyApp.app.insertarPinesEleccionDisplay(records[i].get('Latitude'),records[i].get('Longitude'),'mapaEleccionPines','busstop.png','parada',records[i].get('Name'),target,records[i].get('Name'));
         }
         //lat, lng, idMaps, iconURL, tipoPin
     },
 
-    insertarPinesEleccionDisplay: function(lat, lng, idMap, iconURL, tipoPin, identificador, target) {
+    insertarPinesEleccionDisplay: function(lat, lng, idMap, iconURL, tipoPin, identificador, target, stringInfoWindow) {
         var point = new google.maps.LatLng(lat,lng);
 
         if(iconURL!==undefined){
@@ -185,25 +185,34 @@ Ext.application({
             arrayMarkersDiplayInfo2.push(marker);
         }
 
+
+        var infoWindow = new google.maps.InfoWindow();
         google.maps.event.addListener(marker, "click", function() {
             if(target=='parada'){
                 Ext.getCmp('listaDespliegueInfo').setStore(Ext.getStore('storeDespliegueInfo'));
                 if(tipoPin=='parada'){
+                    Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerInfo'));
+                    Ext.getCmp('tabPanelPrincipal').getTabBar().setHidden(0);
                     //alert('esta es una parada con identificador: '+identificador);
                     Ext.getStore('storeDespliegueInfo').getProxy().setExtraParam('busstopname',identificador);
                     Ext.getStore('storeDespliegueInfo').load();
                 }
                 else{
-                    //alert('no!');
+                    infoWindow.setContent(stringInfoWindow);
+                    infoWindow.open(Ext.getCmp(idMap).getMap(), marker);
                 }
             }
             else{
                 Ext.getCmp('listaDespliegueInfo').setStore(Ext.getStore('storeDespliegueInfoBuses'));
                 if(tipoPin=='parada'){
+                    infoWindow.setContent(stringInfoWindow);
+                    infoWindow.open(Ext.getCmp(idMap).getMap(), marker);
                     //alert('no!');
                     //Ext.getStore('storeDespliegueInfo').getProxy().setExtraParam('busstopname',identificador);
                 }
                 else{
+                    Ext.getCmp('tabPanelPrincipal').setActiveItem(Ext.getCmp('containerInfo'));
+                    Ext.getCmp('tabPanelPrincipal').getTabBar().setHidden(0);
                     //alert('este es un bus con identificador: '+identificador);
                     Ext.getStore('storeDespliegueInfoBuses').getProxy().setExtraParam('idbus',identificador);
                     Ext.getStore('storeDespliegueInfoBuses').load();
@@ -216,7 +225,8 @@ Ext.application({
         limitesPinesEleccion = new google.maps.LatLngBounds();
 
         for(var i=0; i<records.length; i++){
-            MyApp.app.insertarPinesEleccionDisplay(records[i].get('Latitude'),records[i].get('Longitude'),'mapaEleccionPines','bus.png','bus',records[i].get('idBus'),target);
+            var j=i+1;
+            MyApp.app.insertarPinesEleccionDisplay(records[i].get('Latitude'),records[i].get('Longitude'),'mapaEleccionPines','bus.png','bus',records[i].get('idBus'),target,'Bus '+j);
         }
     },
 
